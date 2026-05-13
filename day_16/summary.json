@@ -1,13 +1,12 @@
-[
-    {
-        "Total_alert": 4,
-        "severity_breakdown": {
-            "HIGH": 2,
-            "CRITICAL": 1,
-            "LOW": 1
-        },
-        "blocked_ip": [
-            "192.168.1.50"
-        ]
-    }
-]
+{
+    "total_alerts": 4,
+    "severity_breakdown": {
+        "HIGH": 2,
+        "CRITICAL": 1,
+        "LOW": 1
+    },
+    "blocked_ips": [
+        "45.33.22.11",
+        "91.215.44.12"
+    ]
+}

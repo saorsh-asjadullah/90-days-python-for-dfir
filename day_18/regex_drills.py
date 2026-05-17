@@ -54,7 +54,7 @@ denied_count = 0
 failed_dict = {}
 log_data_list = log_data.split("\n")
 match = re.findall(r"\d+\.\d+\.\d+\.\d+",log_data)
-print(match_ip)
+print(match)
 for i in log_data_list:
     if "Failed" in i:
         match_user = re.search(r"for (\w+) from",i)
@@ -72,4 +72,4 @@ print("\nFinal Dictionary Result:")
 print(failed_dict)
 
 
-because of findall the search is looking for all the match of digits in the string  \d matches one digit and dot breakts the series of numbers in continuation so then there is new series of number
+#because of findall the search is looking for all the match of digits in the string  \d matches one digit and dot breakts the series of numbers in continuation so then there is new series of number

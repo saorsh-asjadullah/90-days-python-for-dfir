@@ -1,0 +1,28 @@
+{
+    "ipv4": [
+        "192.168.1.50",
+        "999.999.999.999",
+        "10.0.0.5"
+    ],
+    "md5": [
+        "5d41402abc4b2a76b9719d911017c592"
+    ],
+    "sha1": [
+        "aaf4c61ddcc5e8a2dabede0f3b482cd9aea9434d"
+    ],
+    "sha256": [
+        "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "domain": [
+        "evil-domain.ru",
+        "phishing-site.example.com"
+    ],
+    "mac": [
+        "11:22:33:44:55:66"
+    ],
+    "invalid": [
+        "not_valid_data",
+        "incomplete_hash_5d41402a",
+        "JUNK"
+    ]
+}

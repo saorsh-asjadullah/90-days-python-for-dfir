@@ -142,3 +142,8 @@ By the end of this series, this repository will show:
 - **Technical Progress:** Learned capture groups with parentheses, named groups with `(?P<name>...)`, `.group(n)`, `.groups()`, `.groupdict()`, and the difference between `re.match()` and `re.search()`.
 - **Logic Insight:** `re.findall()` behavior depends on group count — no groups returns strings, one group returns strings (just the group), multiple groups returns tuples.
 - **Muscle Memory:** Used named groups to parse Apache logs into structured fields and combined extraction with the dictionary-as-counter pattern for status code summaries.
+
+## Day 20: Regex Validation Patterns
+- **Technical Progress:** Used anchors (`^` and `$`) and `re.fullmatch()` to validate entire strings. Compiled patterns with `re.compile()` for performance. Applied alternation with `|`.
+- **Logic Insight:** `re.search()` finds patterns anywhere — use for extraction. `re.fullmatch()` requires the whole string to match — use for validation. The distinction defines whether your script accepts garbage or rejects it at the door.
+- **Muscle Memory:** Built a multi-pattern IOC categorization tool that validates each indicator against a chain of compiled patterns, sorts into a typed dictionary, and exports to JSON.

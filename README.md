@@ -132,3 +132,13 @@ By the end of this series, this repository will show:
 - **Technical Progress:** Learned that `with` automatically closes file handles on block exit by calling __exit__, even when the code inside crashes.
 - **Logic Insight:**  A file handle is closed the moment execution leaves the with block — calling `f.write()` or `f.read()` after that raises `ValueError: I/O` operation on closed file.
 - **Muscle Memory:** The dual context manager pattern — two files opened in a single with statement separated by a comma — is the correct structure for all read-filter-write pipelines.
+
+## Day 18: Regular Expressions — Basics
+- **Technical Progress:** Learned `re.search()` for first match and `re.findall()` for all matches. Used `\d+`, `\.`, character classes `[a-fA-F0-9]{32}`, and anchors `$`.
+- **Logic Insight:** `\d+` matches consecutive digits only — dots break the sequence, which is why an IP returns four separate matches instead of one.
+- **Muscle Memory:** Combined regex extraction with the dictionary-as-counter pattern to count failed login attempts per IP from an auth log.
+
+## Day 19: Regex Groups & Extraction
+- **Technical Progress:** Learned capture groups with parentheses, named groups with `(?P<name>...)`, `.group(n)`, `.groups()`, `.groupdict()`, and the difference between `re.match()` and `re.search()`.
+- **Logic Insight:** `re.findall()` behavior depends on group count — no groups returns strings, one group returns strings (just the group), multiple groups returns tuples.
+- **Muscle Memory:** Used named groups to parse Apache logs into structured fields and combined extraction with the dictionary-as-counter pattern for status code summaries.

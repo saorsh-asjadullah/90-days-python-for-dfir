@@ -33,11 +33,11 @@ Open the raw text file with a context manager and read the entire content into o
 
 #### Step 2 — Define patterns
 
-Compile patterns for IPv4, MD5, SHA1, SHA256, email, and domain. For extraction from running text I do not use `^...$` anchors — those validate a string in isolation. Instead I extract candidates, then validate.
+Compile patterns for IPv4, MD5, SHA1, SHA256, email, and domain. For extraction from running text I do not use `^...$` anchors — those validate a string in isolation. Instead I extract candidates, then validate. Use `\b` word boundaries on hash patterns so the MD5 pattern (32 hex) does not grab the first 32 characters of a SHA256 hash (64 hex).
 
 #### Step 3 — Extract candidates
 
-Use `re.findall()` for each pattern. Use `\b` word boundaries on hash patterns so the MD5 pattern (32 hex) does not grab the first 32 characters of a SHA256 hash (64 hex).
+Use `re.findall()` for each pattern against the full text.
 
 #### Step 4 — Validate and deduplicate
 

@@ -1,0 +1,20 @@
+From: security@corp-internal.com
+To: soc-team@corp-internal.com
+Subject: Suspicious activity detected on WORKSTATION-7
+
+Analyst notes follow. The compromised host 192.168.1.50 was observed
+beaconing to 45.33.22.11 every 60 seconds. DNS resolution pointed to
+evil-c2-domain.ru and a secondary callback to update.malware-cdn.net.
+
+The dropped payload had MD5 5d41402abc4b2a76b9719d911017c592 and we
+confirmed SHA256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+in the quarantine. A second sample matched SHA1 aaf4c61ddcc5e8a2dabede0f3b482cd9aea9434d.
+
+The phishing email originated from attacker@bad-domain.xyz and a reply-to
+of noreply@phishing-kit.com. Internal contact was j.smith@corp-internal.com.
+
+Additional beacon traffic to 185.199.108.153 and 8.8.8.8 (likely DNS).
+The host MAC was 00:1A:2B:3C:4D:5E. Ignore the partial hash 5d41402a and
+the malformed IP 999.999.999.999 in the noise below.
+
+Garbage line: not_an_ioc 10.0.0 incomplete-data... JUNK ::::

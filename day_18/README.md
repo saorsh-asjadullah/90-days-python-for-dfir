@@ -20,56 +20,70 @@ Two critical points: the dot `.` matches anything, so a literal dot (like in an 
  
 Create `day_18/regex_drills.py`.
  
-#### Task 18.1: Detect a Port Number in a Log Line
+#### Task 18.1: The IP Finder (First Match)
  
 Goal: Use `re.search()` to find the first port number in a firewall log entry.
  
-1. Import the `re` module.
-2. Create a string variable holding this log line: `"2025-06-15 08:22:11 DENY TCP 10.0.0.5 192.168.1.1 443 80"`
-3. Write a regex pattern that matches one or more digits.
-4. Use `re.search()` with the pattern against the log line.
-5. Check if the result is not `None`, then print the matched text using `.group()`.
-6. Observe which number it finds first and consider why.
-#### Task 18.2: Extract All Hex Strings
+1. Import re.
+2. Create a variable: log_line = "Failed password for root from 192.168.1.45 port 22 ssh2".
+3. Use re.search() with the pattern r"\d+\.\d+\.\d+\.\d+" to find the IP address.
+4. If a match is found, print the matched text using .group().
+5. Print: f"Attacker IP: {match.group()}".
  
-Goal: Use `re.findall()` to pull every hex-like token from a memory dump snippet.
+#### Task 18.2: The Port Extractor (Find All)
  
-1. Create a string variable: `"addr=0x7FFE0300 offset=0x0041A000 value=0xDEADBEEF flag=0x00"`
-2. Write a regex pattern that matches `0x` followed by one or more hex characters (`0-9`, `a-f`, `A-F`) using a character class.
-3. Use `re.findall()` to get every match.
-4. Loop through the results and print each one.
-#### Task 18.3: Match a Filename Ending in .exe
- 
-Goal: Detect whether a process name ends with `.exe` using anchors and escaping.
- 
-1. Create a list of five strings: `["svchost.exe", "explorer.exe", "payload.dll", "cmd.exe", "config.sys"]`
-2. Write a regex pattern that matches any string ending in `.exe`. Escape the dot and use the end-of-string anchor.
-3. Loop through the list. For each string, use `re.search()` to test it.
-4. Print only the strings that match.
-#### Task 18.4: Validate an MD5 Hash Shape
+1. Create a variable: traffic = `"Connections on port 443, port 80, port 8080, and port 22"`.
+2. Use `re.findall()` with pattern `r"\d+"` to extract all numbers.
+3. Print the resulting list.
+4. Observe: the result is a list of strings, not integers.
+   
+#### Task 18.3: The Dot Trap (Escaping Special Characters)
+  
+1. Create two test strings: `test1 = "192.168.1.1"` and `test2 = "192X168Y1Z1"`.
+2. Use `re.search()` with pattern `r"192.168.1.1"` against both strings. Print whether each matched.
+3. Observe: both match because `.` means "any character."
+4. Fix the pattern by escaping the dots: `r"192\.168\.1\.1"`.
+5. Run again. Now only test1 should match.
+
+#### Task 18.4: The Hash Hunter (Character Classes)
  
 Goal: Use quantifiers and character classes to check if a string looks like a valid MD5 hash.
  
-1. Create a list: `["d41d8cd98f00b204e9800998ecf8427e", "ZZZZ8cd98f00b204e9800998ecf8427e", "d41d8cd98f00b204", "5d41402abc4b2a76b9719d911017c592"]`
-2. An MD5 hash is exactly 32 hexadecimal characters. Write a regex using `^`, `$`, a hex character class, and `{32}`.
-3. Loop through the list. For each string, test it and print whether it is a valid MD5 shape or not.
-#### Task 18.5: Find Process Names in a Log
+1. Create a variable: `evidence = "Found hash: 5d41402abc4b2a76b9719d911017c592 in memory dump"`.
+2. Use `re.findall()` with pattern `r"[a-fA-F0-9]{32}"` to extract the MD5 hash.
+3. Print the result.
+   
+#### Task 18.5: The Extension Filter (Anchors + Loop)
  
 Goal: Use word boundaries to extract exact process names.
  
-1. Create this string: `"Process svchost.exe spawned by services.exe, not svchost_update.exe"`
-2. Write a regex pattern that matches exactly `svchost.exe` as a whole word using `\b` on both sides. Escape the dot.
-3. Use `re.findall()` and print the results.
-4. Observe whether `svchost_update.exe` appears in the results and understand why or why not.
+1. Create a list: `files = ["malware.exe", "notes.txt", "trojan.exe", "report.pdf", "loader.exe"]`.
+2. Loop through the list.
+3. For each filename, use `re.search()` with pattern` r"\.exe$" `to check if it ends with `.exe`.
+4. Print only the filenames that match.
 ---
  
-### The Muscle Memory Gauntlet
+### The "Muscle Memory" Gauntlet (The Auth Log Analyzer)
  
-**Mission:** Build a script that reads a list of firewall log lines, uses regex to extract IP-address-shaped patterns from each line, and reports which lines contain a specific suspicious IP.
- 
-1. Create a list of at least six strings, each simulating a firewall log entry. Include source and destination IPs. Make at least two lines contain `10.10.14.99` and at least one line contain no valid IP pattern at all.
-2. Define a function called `extract_ips` that takes a single log line as a parameter. Inside it, write a regex pattern matching the general shape of an IPv4 address (one to three digits, literal dot, four groups). Use `re.findall()` to return every match.
-3. Define a function called `flag_suspicious` that takes a list of IPs and a target IP string. Return `True` if the target is in the list, `False` otherwise.
-4. Create a variable for the suspicious IP: `"10.10.14.99"`.
-5. Loop through each log line. Call `extract_ips` to get the IPs, then call `flag_suspicious` to check. Print the line and extracted IPs. If flagged, print a warning.
-6. After the loop, print a summary count of how many lines were flagged.
+**The "Muscle Memory" Gauntlet (The Auth Log Analyzer)**
+
+Create a multi-line string simulating an auth log:
+
+```
+log_data = """Mar 1 10:15:01 server sshd: Failed password for admin from 10.0.0.5 port 22
+Mar 1 10:15:03 server sshd: Failed password for root from 192.168.1.100 port 22
+Mar 1 10:15:05 server sshd: Accepted password for admin from 10.0.0.5 port 22
+Mar 1 10:16:01 server sshd: Failed password for guest from 172.16.0.9 port 2222
+Mar 1 10:16:05 server sshd: Failed password for root from 192.168.1.100 port 22"""
+```
+
+Task:
+
+1. Split the string into individual lines.
+2. Use `re.findall()` with the IP pattern to extract all IP addresses from the entire `log_data` string. Print the list.
+3. Loop through each line. If the line contains `"Failed"`:
+    - Use `re.search()` with pattern `r"for (\w+) from"` to extract the username. The parentheses create a group — use `.group(1)` to get just the username. I will explain groups properly on Day 19, but for today treat this as a preview.
+    - Use `re.search()` with the IP pattern to extract the IP.
+    - Print: `f"Failed login: user={username} from={ip}"`.
+4. Count how many times each IP appears in the failed lines using the dictionary-as-counter pattern from Day 15.
+5. Print each IP and its count.

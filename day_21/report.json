@@ -1,0 +1,37 @@
+{
+    "ipv4": [
+        "8.8.8.8",
+        "185.199.108.153",
+        "192.168.1.50",
+        "45.33.22.11"
+    ],
+    "md5": [
+        "5d41402abc4b2a76b9719d911017c592"
+    ],
+    "sha1": [
+        "aaf4c61ddcc5e8a2dabede0f3b482cd9aea9434d"
+    ],
+    "sha256": [
+        "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "email": [
+        "security@corp-internal.com",
+        "soc-team@corp-internal.com",
+        "attacker@bad-domain.xyz",
+        "noreply@phishing-kit.com",
+        "j.smith@corp-internal.com"
+    ],
+    "domain": [
+        "corp-internal.com",
+        "corp-internal.com",
+        "evil-c2-domain.ru",
+        "update.malware-cdn.net",
+        "bad-domain.xyz",
+        "phishing-kit.com",
+        "j.smith",
+        "corp-internal.com"
+    ],
+    "mac": [
+        "00:1A:2B:3C:4D:5E"
+    ]
+}

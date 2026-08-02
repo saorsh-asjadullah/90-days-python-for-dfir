@@ -147,3 +147,13 @@ By the end of this series, this repository will show:
 - **Technical Progress:** Used anchors (`^` and `$`) and `re.fullmatch()` to validate entire strings. Compiled patterns with `re.compile()` for performance. Applied alternation with `|`.
 - **Logic Insight:** `re.search()` finds patterns anywhere — use for extraction. `re.fullmatch()` requires the whole string to match — use for validation. The distinction defines whether your script accepts garbage or rejects it at the door.
 - **Muscle Memory:** Built a multi-pattern IOC categorization tool that validates each indicator against a chain of compiled patterns, sorts into a typed dictionary, and exports to JSON.
+
+## Day 21: Milestone 3 — The IOC Extractor
+- **Technical Progress:** Built a complete IOC extraction tool combining regex extraction, octet-range IP validation, set deduplication, dictionary categorization, and JSON export — structured into modular functions with defensive error handling.
+- **Logic Insight:** Without `\b` word boundaries, a fixed-length hash pattern matches substrings of longer hashes, producing corrupted IOCs that can derail an investigation. Word boundaries force exact-length matching.
+- **Muscle Memory:** The read → extract → validate → deduplicate → categorize → report pipeline, wrapped in functions and driven by a main block with a None guard.
+
+## Day 22: Date & Time Manipulation
+- **Technical Progress:** Used `strptime()` to parse strings into datetime objects, `strftime()` to format them back, and `timedelta` for time math. Sorted events chronologically with `sorted(key=lambda x: x[0])`.
+- **Logic Insight:** Comparing timestamps as strings is dangerous — Python compares character by character, so "10:00:00" sorts before "9:00:00". Always parse to datetime objects before comparing or sorting.
+- **Muscle Memory:** The parse → sort → filter-by-window pipeline for building forensic timelines from unordered multi-source events.

@@ -1,0 +1,14 @@
+{
+    ".pcap": [
+        "capture.pcap"
+    ],
+    ".exe": [
+        "malware.exe"
+    ],
+    ".txt": [
+        "notes.txt"
+    ],
+    ".pdf": [
+        "report.pdf"
+    ]
+}

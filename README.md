@@ -157,3 +157,13 @@ By the end of this series, this repository will show:
 - **Technical Progress:** Used `strptime()` to parse strings into datetime objects, `strftime()` to format them back, and `timedelta` for time math. Sorted events chronologically with `sorted(key=lambda x: x[0])`.
 - **Logic Insight:** Comparing timestamps as strings is dangerous — Python compares character by character, so "10:00:00" sorts before "9:00:00". Always parse to datetime objects before comparing or sorting.
 - **Muscle Memory:** The parse → sort → filter-by-window pipeline for building forensic timelines from unordered multi-source events.
+
+## Day 23: File Paths & pathlib
+- **Technical Progress:** Replaced string-based paths and `os` calls with `pathlib.Path` — used the `/` join operator, `.name`/`.stem`/`.suffix`/`.parent` inspection, `.exists()`/`.is_file()`/`.is_dir()` checks, `.mkdir()`, `.write_text()`, and `.iterdir()`.
+- **Logic Insight:** `.suffix` returns the extension *with* the dot (`.exe`, not `exe`), so comparisons must include it. Path objects are not JSON-serializable — store `.name` strings before writing to JSON.
+- **Muscle Memory:** Building a dynamic extension-to-filenames dictionary from a directory scan, then flagging suspicious file types — using pathlib end to end.
+
+## Day 24: Recursive File Walking
+- **Technical Progress:** Used `Path.rglob()` for recursive tree traversal and `os.walk()` as the classic equivalent. Collected file metadata with `.stat().st_size` and wrapped access in try/except for PermissionError and OSError.
+- **Logic Insight:** `.glob()` is flat and `.rglob()` is recursive — a flat search returning zero results looks like clean evidence rather than a bug, which makes it more dangerous than a crash.
+- **Muscle Memory:** The recursive sweep pipeline — walk the tree, skip non-files, extract metadata, categorize by extension, and export to JSON outside the scanned directory.

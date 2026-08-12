@@ -1,0 +1,46 @@
+{
+    "suspicious": {
+        "svchost.exe": {
+            "f_path": "day_24\\evidence_root\\Windows\\System32",
+            "f_extension": ".exe",
+            "f_size": 27
+        },
+        "dropper.exe": {
+            "f_path": "day_24\\evidence_root\\Users\\jsmith\\AppData\\Local\\Temp",
+            "f_extension": ".exe",
+            "f_size": 27
+        }
+    },
+    "other": {
+        "CMD.EXE-12345.pf": {
+            "f_path": "day_24\\evidence_root\\Windows\\Prefetch",
+            "f_extension": ".pf",
+            "f_size": 26
+        },
+        "POWERSHELL.EXE-67890.pf": {
+            "f_path": "day_24\\evidence_root\\Windows\\Prefetch",
+            "f_extension": ".pf",
+            "f_size": 33
+        },
+        "config.ini": {
+            "f_path": "day_24\\evidence_root\\Windows\\System32",
+            "f_extension": ".ini",
+            "f_size": 61
+        },
+        "notes.txt": {
+            "f_path": "day_24\\evidence_root\\Users\\jsmith\\Documents",
+            "f_extension": ".txt",
+            "f_size": 60
+        },
+        "report.pdf": {
+            "f_path": "day_24\\evidence_root\\Users\\jsmith\\Documents",
+            "f_extension": ".pdf",
+            "f_size": 18
+        },
+        "tmp001.tmp": {
+            "f_path": "day_24\\evidence_root\\Users\\jsmith\\AppData\\Local\\Temp",
+            "f_extension": ".tmp",
+            "f_size": 19
+        }
+    }
+}

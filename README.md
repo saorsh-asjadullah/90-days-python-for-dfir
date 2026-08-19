@@ -167,3 +167,8 @@ By the end of this series, this repository will show:
 - **Technical Progress:** Used `Path.rglob()` for recursive tree traversal and `os.walk()` as the classic equivalent. Collected file metadata with `.stat().st_size` and wrapped access in try/except for PermissionError and OSError.
 - **Logic Insight:** `.glob()` is flat and `.rglob()` is recursive — a flat search returning zero results looks like clean evidence rather than a bug, which makes it more dangerous than a crash.
 - **Muscle Memory:** The recursive sweep pipeline — walk the tree, skip non-files, extract metadata, categorize by extension, and export to JSON outside the scanned directory.
+
+## Day 25: Binary Files (Reading Bytes & Hex)
+- **Technical Progress:** Opened files in binary mode with `"rb"`, read fixed byte counts with `f.read(n)`, repositioned with `f.seek()`, and converted between bytes and hex using `.hex()` and `bytes.fromhex()`.
+- **Logic Insight:** Indexing a bytes object returns an integer while slicing returns bytes — `data[0]` is `77` but `data[0:1]` is `b'M'`. File signatures must be compared with `.startswith()` because they vary in length.
+- **Muscle Memory:** The magic-number triage pipeline — read header, identify true file type, compare against declared extension, and flag spoofed files.

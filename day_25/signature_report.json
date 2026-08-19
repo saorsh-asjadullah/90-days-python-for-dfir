@@ -1,0 +1,15 @@
+{
+    "matched": {
+        "C:\\Users\\phoenix\\Documents\\Python_Labs_Codes\\90-days-python-for-dfir\\day_25\\archive.zip": "ZIP Archive",
+        "C:\\Users\\phoenix\\Documents\\Python_Labs_Codes\\90-days-python-for-dfir\\day_25\\image.png": "PNG Image",
+        "C:\\Users\\phoenix\\Documents\\Python_Labs_Codes\\90-days-python-for-dfir\\day_25\\real_pdf.pdf": "PDF Document"
+    },
+    "EXTENSION MISMATCH DETECTED": {
+        "C:\\Users\\phoenix\\Documents\\Python_Labs_Codes\\90-days-python-for-dfir\\day_25\\binary_drills.py": "Unkown",
+        "C:\\Users\\phoenix\\Documents\\Python_Labs_Codes\\90-days-python-for-dfir\\day_25\\fake_exe.txt": "Windows Executable (PE)",
+        "C:\\Users\\phoenix\\Documents\\Python_Labs_Codes\\90-days-python-for-dfir\\day_25\\fake_pdf.pdf": "Windows Executable (PE)",
+        "C:\\Users\\phoenix\\Documents\\Python_Labs_Codes\\90-days-python-for-dfir\\day_25\\README.md": "Unkown",
+        "C:\\Users\\phoenix\\Documents\\Python_Labs_Codes\\90-days-python-for-dfir\\day_25\\signature_report.json": "Unkown",
+        "C:\\Users\\phoenix\\Documents\\Python_Labs_Codes\\90-days-python-for-dfir\\day_25\\test_binary.bin": "Windows Executable (PE)"
+    }
+}
